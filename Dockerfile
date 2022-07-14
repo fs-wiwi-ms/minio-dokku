@@ -1,5 +1,10 @@
 FROM minio/minio:latest
 
+# Install minio client
+RUN wget https://dl.minio.io/client/mc/release/linux-amd64/mc
+RUN mv mc /bin
+RUN chmod +x /bin/mc
+
 # Add user dokku with an individual UID
 RUN adduser -u 32769 -m -U dokku
 USER dokku
